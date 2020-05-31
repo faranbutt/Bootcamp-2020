@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+ This is a basic workflow to help you get started with Actions
 
 name: Deploy Website
 
@@ -7,6 +7,7 @@ name: Deploy Website
 on:
   push:
     branches: [ master ]
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,9 +24,10 @@ jobs:
     # Runs a single command using the runners shell
     - name: Install NodeJS
       uses: actions/setup-node@v2-beta
-      with: 
+      with:
         node-version: 12
     - name: Install Surge
       run: npm install -g surge
     - name: Run Surge
-      run: surge ./ bootcampnewaapp.surge.sh --token${{secrets.SURGE_TOKEN}}
+      run: surge ./ http://faisalrahman36-bootcamp.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
+       
